@@ -1,1 +1,23 @@
+# Etcd Setup Guide
+
+1. Download & Install Etcd
+Download the Etcd RPM package for your system from the official repository:  
+http://ftp.postgresql.org/pub/repos/yum/common/pgdg-rhel9-extras/redhat/rhel-9-x86_64/
+
+Install the package:
+```bash
+sudo rpm -ivh etcd-*.rpm
+
+2. Configure, Start & Verify Etcd
+
+Go to the configuration directory and edit etcd.conf according to your cluster setup (node name, initial cluster members, listen URLs, etc.). Then start and verify the cluster:
+cd /etc/etcd
+# Edit etcd.conf here
+
+sudo systemctl enable etcd
+sudo systemctl start etcd
+
+# Verify cluster status
+source etcd-env.sh
+etcdctl endpoint status --write-out=table --endpoints=$ENDPOINTS
 
