@@ -51,3 +51,21 @@ patroni-cluster-lab/
 │ ├── setup-guide.md # step-by-step installation
 │
 └── README.md # this file
+
+
+---
+
+## ⚙️ Requirements
+- Linux (tested on Rocky 9.6)
+- Python ≥ 3.9
+- PostgreSQL ≥ 13 (tested up to v17)
+- etcd ≥ 3.6
+- Patroni ≥ 4.0
+
+---
+
+## 🔧 Setup Instructions (Lab)
+
+
+
+
