@@ -52,13 +52,9 @@ postgresql:
       username: postgres
       password: postgres
 
-        #watchdog:
-        #mode: required
-        #device: /dev/watchdog
-        #safety_margin: 5
-
 tags:
     nofailover: false
     noloadbalance: false
     clonefrom: false
     nosync: false
+
