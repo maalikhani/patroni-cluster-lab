@@ -37,22 +37,18 @@ This repository is a lab environment to demonstrate how to run a PostgreSQL clus
 - **PostgreSQL nodes** are managed by Patroni, ensuring only one leader at a time.
 
 ---
+📂 Repository Structure
 
-## 📂 Repository Structure
+## Repository Structure
 
 patroni-cluster-lab/
 ├── etcd/
-│ ├── etcd.conf.yml # etcd cluster config
-│
+│ └── etcd.conf.yml # etcd cluster config
 ├── patroni/
-│ ├── patroni.yml # Patroni cluster config
-│
+│ └── patroni.yml # Patroni cluster config
 ├── docs/
-│ ├── setup-guide.md # step-by-step installation
-│
+│ └── setup-guide.md # step-by-step installation
 └── README.md # this file
-
-
 ---
 
 ## ⚙️ Requirements
