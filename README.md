@@ -17,20 +17,25 @@ This repository is a lab environment to demonstrate how to run a PostgreSQL clus
 ## 🏗️ Architecture
      +-----------------------------+
      |        etcd Cluster         |
-     |  192.168.220.140-142 (3N)   |
+     |  192.168.220.140 (etcd1)    |
+     |  192.168.220.141 (etcd2)    |
+     |  192.168.220.142 (etcd3)    |
      +-------------+---------------+
                    |
                    v
      +-----------------------------+
      |       Patroni Cluster       |
-     |  192.168.220.143-145 (3N)   |
+     |  192.168.220.143 (pg1)      |
+     |  192.168.220.144 (pg2)      |
+     |  192.168.220.145 (pg3)      |
      +-------------+---------------+
                    |
                    v
      +-----------------------------+
      |       PostgreSQL HA DB      |
-     |   Leader + Followers (2N)   |
+     |   Leader + 2 Followers      |
      +-----------------------------+
+
 
 - **etcd cluster** is used as DCS to store cluster state, leader key, and configuration.
 - **Patroni cluster** connects to etcd for consensus and manages PostgreSQL failover.
