@@ -17,13 +17,13 @@ This repository is a lab environment to demonstrate how to run a PostgreSQL clus
 ## 🏗️ Architecture
      +-----------------------------+
      |        etcd Cluster         |
-     |  192.168.220.140-142 (3N)  |
+     |  192.168.220.140-142 (3N)   |
      +-------------+---------------+
                    |
                    v
      +-----------------------------+
      |       Patroni Cluster       |
-     |  192.168.220.143-145 (3N)  |
+     |  192.168.220.143-145 (3N)   |
      +-------------+---------------+
                    |
                    v
@@ -37,18 +37,18 @@ This repository is a lab environment to demonstrate how to run a PostgreSQL clus
 - **PostgreSQL nodes** are managed by Patroni, ensuring only one leader at a time.
 
 ---
-📂 Repository Structure
 
-## Repository Structure
+## 📂 Repository Structure
 
-patroni-cluster-lab/
-├── etcd/
-│ └── etcd.conf.yml # etcd cluster config
-├── patroni/
-│ └── patroni.yml # Patroni cluster config
-├── docs/
-│ └── setup-guide.md # step-by-step installation
-└── README.md # this file
+- `patroni-cluster-lab/`
+  - `etcd/`
+    - `etcd.conf` – etcd cluster config
+  - `patroni/`
+    - `patroni.yml` – Patroni cluster config
+  - `docs/`
+    - `setup-guide.md` – step-by-step installation
+  - `README.md` – this file
+
 ---
 
 ## ⚙️ Requirements
@@ -57,10 +57,6 @@ patroni-cluster-lab/
 - PostgreSQL ≥ 13 (tested up to v17)
 - etcd ≥ 3.6
 - Patroni ≥ 4.0
-
----
-
-## 🔧 Setup Instructions (Lab)
 
 
 
