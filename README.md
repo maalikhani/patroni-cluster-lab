@@ -42,6 +42,13 @@ This repository is a lab environment to demonstrate how to run a PostgreSQL clus
      |   Leader + 2 Followers      |
      +-----------------------------+
 
+## 📊 HAProxy Dashboard
+
+Patroni + HAProxy provides a web dashboard to monitor node health and routing status.  
+Accessible on port `7000`:
+
+![HAProxy Dashboard](ha-proxy.PNG)
+
 
 - **etcd cluster** is used as DCS to store cluster state, leader key, and configuration.
 - **Patroni cluster** connects to etcd for consensus and manages PostgreSQL failover.
