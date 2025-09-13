@@ -10,6 +10,7 @@ This repository is a lab environment to demonstrate how to run a PostgreSQL clus
 - etcd as Distributed Consensus Store (DCS)
 - Systemd unit files for `etcd` and `patroni`
 - Example configuration for a **3-node etcd cluster** + **3-node Patroni cluster**
+- HAProxy as a load balancer and single entry point
 - Ready-to-use lab environment (VMs, manual deployment)
 
 ---
