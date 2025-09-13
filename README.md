@@ -78,6 +78,22 @@ Accessible on port `7000`:
 - Patroni ≥ 4.0
 - HAProxy version 2.4.22
 
+---
+
+## 📝 Best Practices & Recommendations
+
+- This cluster relies on the **Raft consensus algorithm**.  
+  To maintain availability, at least `n/2 + 1` nodes must remain online.  
+
+- Running the cluster (and in general all **stateful database services**) is highly recommended on **bare-metal servers** or stable environments, rather than lightweight or unstable VMs.  
+
+- Consider using the [TimescaleDB](https://www.timescale.com/) extension to improve performance for time-series workloads.  
+
+- Proper **tuning of essential PostgreSQL parameters** (such as `shared_buffers`, `work_mem`, `max_connections`, and `checkpoint_timeout`) is strongly advised to achieve higher stability and performance.  
+
+- For production-grade setups, it is recommended to integrate **Monitoring** (e.g., Prometheus + Grafana) and **Automated Backups** into the cluster.  
+
+
 
 
 
