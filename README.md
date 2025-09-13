@@ -15,7 +15,7 @@ This repository is a lab environment to demonstrate how to run a PostgreSQL clus
 ---
 
 ## 🏗️ Architecture
-     +-----------------------------+
+       +-----------------------------+
      |        etcd Cluster         |
      |  192.168.220.140 (etcd1)    |
      |  192.168.220.141 (etcd2)    |
@@ -28,6 +28,12 @@ This repository is a lab environment to demonstrate how to run a PostgreSQL clus
      |  192.168.220.143 (pg1)      |
      |  192.168.220.144 (pg2)      |
      |  192.168.220.145 (pg3)      |
+     +-------------+---------------+
+                   |
+                   v
+     +-----------------------------+
+     |         HAProxy             |
+     |   192.168.220.147 (haproxy) |
      +-------------+---------------+
                    |
                    v
@@ -62,6 +68,7 @@ This repository is a lab environment to demonstrate how to run a PostgreSQL clus
 - PostgreSQL ≥ 13 (tested up to v17)
 - etcd ≥ 3.6
 - Patroni ≥ 4.0
+- HAProxy version 2.4.22
 
 
 
