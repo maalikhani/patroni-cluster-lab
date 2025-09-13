@@ -1,1 +1,46 @@
+global
+    log         127.0.0.1 local2
+    chroot      /var/lib/haproxy
+    pidfile     /var/run/haproxy.pid
+    maxconn     1000
+    user        haproxy
+    group       haproxy
+    daemon
+    stats socket /var/lib/haproxy/stats
 
+defaults
+    mode                    tcp
+    log                     global
+    option                  tcplog
+    retries                 3
+    timeout queue           1m
+    timeout connect         10s
+    timeout client          1m
+    timeout server          1m
+    timeout check           10s
+    maxconn                 900
+
+listen stats
+    mode http
+    bind *:7000
+    stats enable
+    stats uri /
+
+listen primary
+    bind 192.168.220.147:5000
+    option httpchk OPTIONS /master
+    http-check expect status 200
+    default-server inter 3s fall 3 rise 2 on-marked-down shutdown-sessions
+    server pgsql1 192.168.220.143:5432 maxconn 100 check port 8008
+    server pgsql2 192.168.220.144:5432 maxconn 100 check port 8008
+    server pgsql3 192.168.220.145:5432 maxconn 100 check port 8008
+
+listen standby
+    bind 192.168.220.147:5001
+    balance roundrobin
+    option httpchk OPTIONS /replica
+    http-check expect status 200
+    default-server inter 3s fall 3 rise 2 on-marked-down shutdown-sessions
+    server pgsql1 192.168.220.143:5432 maxconn 100 check port 8008
+    server pgsql2 192.168.220.144:5432 maxconn 100 check port 8008
+    server pgsql3 192.168.220.145:5432 maxconn 100 check port 8008
